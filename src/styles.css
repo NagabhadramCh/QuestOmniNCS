@@ -1,0 +1,120 @@
+/* Quest Diagnostics · Provider Services look: deep green, lime accent, Archivo headings, Source Sans body. */
+:root {
+  --bg: #F4F6F2;
+  --card: #FFFFFF;
+  --ink: #1B2418;
+  --muted: #586253;
+  --rule: #D8DED3;
+  --soft: #EAEFE5;
+  --green: #4A7637;
+  --green-dark: #3B6A2C;
+  --lime: #B9C930;
+  --green-soft: #EEF3DC;
+  --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  font-family: var(--f-body);
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; background: var(--bg); }
+body { font-size: 16px; line-height: 1.5; }
+button { font: inherit; }
+
+.shell { min-height: 100vh; display: flex; flex-direction: column; }
+.wrap { width: 100%; max-width: 760px; margin: 0 auto; padding-inline: 16px; }
+.brandbar { height: 6px; background: linear-gradient(90deg, var(--green) 0 78%, var(--lime) 78% 100%); }
+
+/* Header */
+.site-header { background: var(--card); border-bottom: 1px solid var(--rule); }
+.site-header__row { display: flex; align-items: center; gap: 14px; min-height: 68px; }
+.logo { height: 40px; width: auto; display: block; }
+.sep { width: 1px; height: 28px; background: var(--rule); }
+.area { font: 700 15px var(--f-display); letter-spacing: .02em; color: var(--muted); }
+
+/* Page */
+.page { flex: 1; display: flex; flex-direction: column; gap: 18px; padding-block: 28px 40px; }
+.intro { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { margin: 0; font: 700 12px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+h1 {
+  margin: 0; font-family: var(--f-display); font-weight: 800; font-size: clamp(24px, 4vw, 32px); line-height: 1.15;
+  text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--lime) 70%, transparent);
+  text-decoration-thickness: 4px; text-underline-offset: 10px; text-decoration-skip-ink: none; padding-bottom: 6px;
+}
+.lead { margin: 0; color: var(--muted); max-width: 62ch; }
+
+.steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.steps li { display: flex; align-items: flex-start; gap: 10px; padding: 12px; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; font-size: 14.5px; color: var(--ink); }
+.steps .num { flex: none; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: #fff; font: 700 13px var(--f-display); }
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr; } }
+
+.note { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; color: var(--muted); font-size: 13.5px; text-align: center; }
+.lock { color: var(--green); flex: none; }
+.warning { padding: 12px 14px; color: #7c4a03; background: #fff7df; border: 1px solid #f2d18a; border-radius: 10px; }
+
+/* Chat */
+.chat-window { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 24px rgba(27, 36, 24, .06); }
+.chat-window--inline { height: min(74vh, 700px); }
+.chat-window--floating { position: fixed; right: 20px; bottom: 20px; width: min(400px, calc(100vw - 32px)); height: min(640px, calc(100vh - 40px)); box-shadow: 0 18px 48px rgba(27, 36, 24, .22); z-index: 10; }
+.chat-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; color: #fff; background: var(--green); border-bottom: 3px solid var(--lime); }
+.chat-header__title { display: inline-flex; align-items: center; gap: 10px; font: 700 15px var(--f-display); letter-spacing: .01em; }
+.chat-header__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(185, 201, 48, .25); }
+.chat-header button { width: 32px; height: 32px; color: #fff; background: transparent; border: 0; border-radius: 8px; font-size: 20px; cursor: pointer; }
+.chat-header button:hover { background: rgba(255, 255, 255, .14); }
+.chat-body { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.sdk-status { margin: 0; padding: 6px 16px; color: var(--muted); font-size: 12.5px; background: var(--green-soft); border-bottom: 1px solid var(--rule); }
+.sdk-status.error { flex: none; margin: 16px; padding: 12px 14px; color: #B8440F; background: #FCE6D8; border: 1px solid #F3C3A4; border-radius: 10px; font-size: 14px; }
+.chat-body > :last-child:not(.sdk-status) { flex: 1; min-height: 0; }
+
+.avatar-bubble { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border: 0; border-radius: 50%; background: var(--green); color: #fff; font-size: 24px; box-shadow: 0 10px 28px rgba(27, 36, 24, .28); cursor: pointer; z-index: 10; outline: 3px solid var(--lime); outline-offset: -3px; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--rule); background: var(--card); }
+.site-footer__row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-block: 14px; font-size: 13px; color: var(--muted); }
+.shell:has(.avatar-bubble) .site-footer__row { padding-right: 96px; }
+.site-footer b { color: var(--green); }
+
+:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+
+/* Date fields in chat forms: the chat's native date input stays hidden (it still holds the value); the visible field
+   opens the Quest calendar on a click anywhere in it. */
+.qd-date-native { position: absolute !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
+.qd-date { position: relative; display: block; width: 100%; }
+.qd-date__input.qd-date__input { width: 100%; padding-right: 40px !important; cursor: pointer; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.qd-date__input.qd-date__input:hover:not(:disabled) { border-color: var(--green) !important; }
+.qd-date__input.qd-date__input:focus, .qd-date__input.qd-date__input.active { outline: none; border-color: var(--green) !important; box-shadow: 0 0 0 3px rgba(74, 118, 55, .18); }
+.qd-date__icon {
+  position: absolute; right: 10px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); cursor: pointer; border-radius: 6px;
+  background: var(--green-soft) no-repeat center / 14px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%234A7637' d='M5 1a.75.75 0 0 1 .75.75V2.5h4.5v-.75a.75.75 0 0 1 1.5 0v.75h.75A2.5 2.5 0 0 1 15 5v7.5A2.5 2.5 0 0 1 12.5 15h-9A2.5 2.5 0 0 1 1 12.5V5a2.5 2.5 0 0 1 2.5-2.5h.75v-.75A.75.75 0 0 1 5 1Zm-1.5 5.5V12.5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5h-11Z'/%3E%3C/svg%3E");
+}
+.qd-date.is-disabled .qd-date__input { cursor: default; background: var(--soft); }
+.qd-date.is-disabled .qd-date__icon { opacity: .45; cursor: default; }
+
+/* Quest calendar popup (flatpickr) */
+.flatpickr-calendar.qd-cal {
+  width: 300px; padding: 0 0 10px; border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 16px 40px rgba(27, 36, 24, .18), 0 2px 6px rgba(27, 36, 24, .08); font-family: var(--f-body);
+}
+.flatpickr-calendar.qd-cal::before, .flatpickr-calendar.qd-cal::after { display: none; }
+.qd-cal .flatpickr-months { background: var(--green); border-bottom: 3px solid var(--lime); padding: 6px 4px; }
+.qd-cal .flatpickr-months .flatpickr-month { color: #fff; fill: #fff; height: 40px; }
+.qd-cal .flatpickr-current-month { font: 700 15px var(--f-display); padding-top: 8px; color: #fff; }
+.qd-cal .flatpickr-current-month .flatpickr-monthDropdown-months { color: #fff; background: transparent; font-weight: 700; border-radius: 6px; }
+.qd-cal .flatpickr-current-month .flatpickr-monthDropdown-months:hover, .qd-cal .numInputWrapper:hover { background: rgba(255, 255, 255, .14); }
+.qd-cal .flatpickr-current-month .flatpickr-monthDropdown-months option { color: var(--ink); background: #fff; }
+.qd-cal .flatpickr-current-month input.cur-year { color: #fff; font-weight: 700; }
+.qd-cal .numInputWrapper span.arrowUp::after { border-bottom-color: #fff; }
+.qd-cal .numInputWrapper span.arrowDown::after { border-top-color: #fff; }
+.qd-cal .flatpickr-months .flatpickr-prev-month, .qd-cal .flatpickr-months .flatpickr-next-month { color: #fff; fill: #fff; top: 8px; padding: 12px; }
+.qd-cal .flatpickr-months .flatpickr-prev-month:hover svg, .qd-cal .flatpickr-months .flatpickr-next-month:hover svg { fill: var(--lime); }
+.qd-cal .flatpickr-weekdays { margin-top: 8px; }
+.qd-cal span.flatpickr-weekday { color: var(--muted); font: 700 11.5px var(--f-body); letter-spacing: .06em; text-transform: uppercase; }
+.qd-cal .flatpickr-innerContainer, .qd-cal .flatpickr-rContainer, .qd-cal .flatpickr-days, .qd-cal .dayContainer { width: 298px; min-width: 298px; max-width: 298px; }
+.qd-cal .flatpickr-day { color: var(--ink); border-radius: 10px; font-weight: 600; max-width: 38px; height: 38px; line-height: 38px; }
+.qd-cal .flatpickr-day:hover, .qd-cal .flatpickr-day:focus { background: var(--green-soft); border-color: var(--green-soft); }
+.qd-cal .flatpickr-day.today { border-color: var(--lime); box-shadow: inset 0 0 0 1px var(--lime); }
+.qd-cal .flatpickr-day.selected, .qd-cal .flatpickr-day.selected:hover { background: var(--green); border-color: var(--green); color: #fff; }
+.qd-cal .flatpickr-day.flatpickr-disabled, .qd-cal .flatpickr-day.prevMonthDay, .qd-cal .flatpickr-day.nextMonthDay { color: #B7BFB2; }
+@media (max-width: 380px) { .flatpickr-calendar.qd-cal { width: 286px; } .qd-cal .flatpickr-innerContainer, .qd-cal .flatpickr-rContainer, .qd-cal .flatpickr-days, .qd-cal .dayContainer { width: 284px; min-width: 284px; max-width: 284px; } }
